@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TaiChi</title>
+    <style>
+        body{
+            background: #c2eec2;
+        }
+        .taichi{
+            height: 400px;
+            width: 400px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #ffffff 50%,#000000 50%);
+            position: relative;
+            margin: 100px auto;
+
+            animation: 3s linear infinite spin;
+
+        }
+
+        .taichi::before{
+            content: "";
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 50%;
+            position: absolute;
+            top: 100px;
+            background: #ffffff;
+            border: 80px solid #000000;
+
+        }
+
+        .taichi::after{
+            content: "";
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            border-radius: 50%;
+            position: absolute;
+            top: 100px;
+            right: 0;
+            background: #000000;
+            border: 80px solid #ffffff;
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            } to {
+                  transform: rotate(360deg);
+              }
+        }
+
+    </style>
+</head>
+<body>
+<div class="taichi"></div>
+<p>一为无；二为阴阳两分而合和；三为生生之源；四为有序运动；五在时间表现为无时不在，在空间上表现为无处不在；六位于形而上却体现在形而下</p>
+</body>
+</html>
