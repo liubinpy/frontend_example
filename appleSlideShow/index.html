@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苹果风格轮播图</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js
+    "></script>
+    <style>
+        .myWindow{
+            width: 300px;
+            overflow: hidden;
+        }
+        .imgs{
+            transition: all 1s;
+            display: flex;
+            align-items: flex-start;
+        }
+        .active{
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="myWindow">
+        <div id="imgs" class="imgs">
+            <img src="./imgs/1.jpeg" alt="女朋友1" width="300px">
+            <img src="./imgs/2.jpeg" alt="女朋友2" width="300px">
+            <img src="./imgs/3.jpeg" alt="女朋友3" width="300px">
+        </div>
+    </div>
+    <div id="bts" style="width: 300px ;text-align: center">
+        <button id="g1">GF1</button>
+        <button id="g2">GF2</button>
+        <button id="g3">GF3</button>
+    </div>
+
+
+</body>
+<script>
+    var buttons = $("#bts > button")
+    var bLen = buttons.length;
+    var n = 0;
+    var intervalClock;
+
+    for(var i=0; i< buttons.length; i++){
+        $(buttons[i]).on("click", function(e){
+            n = $(e.currentTarget).index()
+            distance = -300 * n
+            $("#imgs").css (
+                "margin-left", "" + distance +"px"
+            )
+            $(e.currentTarget).addClass("active").siblings().removeClass("active")
+
+        })
+    }
+
+    function setIntervalClock(){
+        buttons.eq(n%bLen).trigger('click')
+        intervalClock = setInterval(function(){
+            n++
+            buttons.eq(n%bLen).trigger('click')
+        }
+        ,1000)
+    }
+    setIntervalClock();
+
+    $(".myWindow").on("mouseenter",function(){
+        window.clearInterval(intervalClock);
+    })
+    $(".myWindow").on("mouseleave",function(){
+        setIntervalClock();
+    })
+
+    
+</script>
+</html>

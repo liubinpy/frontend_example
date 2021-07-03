@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 2px solid red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        body{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="box"></div>
+    <script>
+        box = document.getElementById("box")
+        m = 0
+        let clock = setInterval(() => {
+            box.style.left = m + "px"
+            m = m + 5;
+            if (m === 500 ){
+                window.clearInterval(clock)
+            }
+        }, 40);
+    </script>
+</body>
+</html>
